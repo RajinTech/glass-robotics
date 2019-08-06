@@ -6,12 +6,12 @@ import RPi.GPIO as GPIO
 class Motor:
     motors = PiGPIOFactory(host='192.168.1.21')#Create Factory
 
-    TRACK_STEP = PWMLED(25)
-    TRACK_DIR = PWMLED(12)
-    ROTATE_STEP = PWMLED(19)
-    ROTATE_DIR = PWMLED(26)
-    TILT_STEP = PWMLED(19)
-    TILT_DIR = PWMLED(26)
+    TRACK_STEP = PWMLED(2)
+    TRACK_DIR = PWMLED(3)
+    ROTATE_STEP = PWMLED(12)
+    ROTATE_DIR = PWMLED(16)
+    TILT_STEP = PWMLED(20)
+    TILT_DIR = PWMLED(21)
 
     delay = .005
 
