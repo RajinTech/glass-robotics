@@ -4,35 +4,45 @@ from time import sleep
 import RPi.GPIO as GPIO
 
 class Motor:
+    motors = PiGPIOFactory(host='192.168.1.21')#Create Factory
+
+    TRACK_STEP = PWMLED(25)
+    TRACK_DIR = PWMLED(12)
+    ROTATE_STEP = PWMLED(19)
+    ROTATE_DIR = PWMLED(26)
+    TILT_STEP = PWMLED(19)
+    TILT_DIR = PWMLED(26)
+
     delay = .005
-    
-    motors = ''
-    CAR_STEP = PWMLED(2)
-    CAR_DIR = PWMLED(3)
 
-                                            #CHUCK PINS
-
-    
-    
     def __init__(self, name):
         self.data = []
         self.name = name
-     
-                                        #RIGHT        
+
+                                        #RIGHT
     def right(self, speed, length):
         motors = self.motors
-        if self.name == "car":
-            dir = self.CAR_DIR
-            step = self.CAR_STEP
+        if self.name == "track":
+            dir = self.TRACK_DIR
+            step = self.TRACK_STEP
             for x in range(length):
                 print(self.name)
                 dir.value = 0
                 step.value = .5
                 sleep(speed)
                 step.value = 0
-        if self.name == "chk":
-            dir = self.CHK_DIR
-            step = self.CHK_STEP
+        if self.name == "tilt":
+            dir = self.TILT_DIR
+            step = self.TILT_STEP
+            for x in range(length):
+                print(self.name)
+                dir.value = 0
+                step.value = .5
+                sleep(speed)
+                step.value = 0
+        if self.name == "rotate":
+            dir = self.TILT_DIR
+            step = self.TILT_STEP
             for x in range(length):
                 print(self.name)
                 dir.value = 0
@@ -40,20 +50,29 @@ class Motor:
                 sleep(speed)
                 step.value = 0
                                        #LEFT
-    def left(self, speed, length):
+    def leftt(self, speed, length):
         motors = self.motors
-        if self.name == "car" and self.name != "chk":
-            dir = self.CAR_DIR
-            step = self.CAR_STEP
+        if self.name == "track":
+            dir = self.TRACK_DIR
+            step = self.TRACK_STEP
             for x in range(length):
                 print(self.name)
                 dir.value = 1
                 step.value = .5
                 sleep(speed)
                 step.value = 0
-        if self.name == "chk" and self.name != "car":
-            dir = self.CHK_DIR
-            step = self.CHK_STEP
+        if self.name == "tilt":
+            dir = self.TILT_DIR
+            step = self.TILT_STEP
+            for x in range(length):
+                print(self.name)
+                dir.value = 1
+                step.value = .5
+                sleep(speed)
+                step.value = 0
+        if self.name == "rotate":
+            dir = self.TILT_DIR
+            step = self.TILT_STEP
             for x in range(length):
                 print(self.name)
                 dir.value = 1
@@ -63,7 +82,7 @@ class Motor:
                                           #STEP LEFT
     def stepleft(self, steps):
         motors = self.motors
-        if self.name == "car" and self.name != "chk":
+        if self.name == "track" and self.name != "chk":
             dir = self.CAR_DIR
             step = self.CAR_STEP
             print(self.name, "<", steps)
@@ -73,7 +92,7 @@ class Motor:
                 sleep(self.delay)
                 step.off()
                 sleep(self.delay)
-        if self.name == "chk" and self.name != "car":
+        if self.name == "chk" and self.name != "track":
             dir = self.CHK_DIR
             step = self.CHK_STEP
             print(self.name, "<", steps)
@@ -86,7 +105,7 @@ class Motor:
                                     #STEP RIGHT
     def stepright(self, steps):
         motors = self.motors
-        if self.name == "car" and self.name != "chk":
+        if self.name == "track" and self.name != "chk":
             dir = self.CAR_DIR
             step = self.CAR_STEP
             print(self.name, steps, ">")
@@ -96,7 +115,7 @@ class Motor:
                 sleep(self.delay)
                 step.off()
                 sleep(self.delay)
-        if self.name == "chk" and self.name != "car":
+        if self.name == "chk" and self.name != "track":
             dir = self.CHK_DIR
             step = self.CHK_STEP
             print(self.name, steps, ">")
@@ -105,6 +124,6 @@ class Motor:
                 step.on()
                 sleep(self.delay)
                 step.off()
-                sleep(self.delay)        
+                sleep(self.delay)
 
 GPIO.cleanup()

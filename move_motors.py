@@ -5,32 +5,33 @@ import RPi.GPIO as GPIO
 from classes.motor import Motor
 
                 #MOTOR TEST
-car = Motor("car")
-chk = Motor("chk")
+track = Motor("track")
+rotate = Motor("rotate")
+tilt = Motor("tilt")
 while True:
     task = input("use a  s  d  f  g  h  or j  k  l  ;   ' to move motors\n    20 10 1  1  11 26    10 1  1  5  10\n:")
     type(task)
     if task == "a":
-        car.left(1, 20)
+        track.left(1, 20)
     if task == "s":
-        car.left(1, 10)
+        track.left(1, 10)
     if task == "d":
-        car.left(.25, 1)
+        track.left(.25, 1)
     if task == "f":
-        car.right(1, 1)
+        track.right(1, 1)
     if task == "g":
-        car.right(1, 11)
+        track.right(1, 11)
     if task == "h":
-        car.right(1, 26)
+        track.right(1, 26)
     if task == "j":
-        chk.left(1, 10)
+        rotate.left(1, 10)
     if task == "k":
-        chk.left(1, 1)
+        rotate.left(1, 1)
     if task == "l":
-        chk.right(1, 1)
+        rotate.right(1, 1)
     if task == ";":
-        chk.right(1, 5)
+        rotate.right(1, 5)
     if task == "'":
-        chk.right(1, 20)
+        rotate.right(1, 20)
 
 GPIO.cleanup()
