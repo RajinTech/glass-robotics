@@ -8,6 +8,7 @@ GPIO.setup(17, GPIO.IN, pull_up_down=GPIO.PUD_DOWN) # Set pin 17 to be an input 
 count = 0;
 while True: # Run forever
     print("start")
+    print(count)
     if GPIO.input(18) == GPIO.HIGH:
         count = count + 1
         print("Press Button was pushed!")
