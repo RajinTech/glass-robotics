@@ -22,7 +22,7 @@ while True: # Run forever
     print("start")
     print(count)
     #PUSH
-    if GPIO.input(18) == False:
+    if GPIO.input(18) == True:
         count = count + 1
         print("Press Button was pushed!")
         display.lcd_display_string("Press Button was Pushed", 1)
