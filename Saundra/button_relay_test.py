@@ -16,7 +16,7 @@ while True: # Run forever
         GPIO.output(25, GPIO.HIGH)
         while input_value == False:
             input_value = GPIO.input(17)
-
+GPIO.cleanup()
 
 
 
