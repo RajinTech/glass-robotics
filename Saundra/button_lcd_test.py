@@ -30,4 +30,4 @@ while True: # Run forever
         display.lcd_display_string("Tactile Pushed", 1)
         display.lcd_display_string(str(count), 2)
         print(count)
-        display.lcd_clear() 
+        
