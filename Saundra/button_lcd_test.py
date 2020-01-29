@@ -33,8 +33,9 @@ while True: # Run forever
         print(count)
         if speed_timer < 10:
             time.sleep(1)
-    else if GPIO.input(17) == True:
+    if GPIO.input(17) == True:
         speed_timer = 0
+        print("Tactile Button Not Pushed")
         display.lcd_display_string(active_mode, 1)
         display.lcd_display_string(str(count), 2)
 
