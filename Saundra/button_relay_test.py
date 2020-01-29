@@ -10,15 +10,9 @@ GPIO.setup(25, GPIO.OUT)
 
 
 while True: # Run forever
-    print("start")
     input_value = GPIO.input(17)
-
-
-    #TACTILE
     if input_value == False:
-
         print("Tactile Button was pushed!")
-        #GPIO.output(25, GPIO.HIGH)
         while input_value == False:
             input_value = GPIO.input(17)
 
