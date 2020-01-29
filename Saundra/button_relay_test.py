@@ -13,6 +13,7 @@ while True: # Run forever
     input_value = GPIO.input(17)
     if input_value == False:
         print("Tactile Button was pushed!")
+        GPIO.output(25, GPIO.HIGH)
         while input_value == False:
             input_value = GPIO.input(17)
 
