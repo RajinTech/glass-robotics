@@ -20,15 +20,14 @@ count = 0;
 while True: # Run forever
     print("start")
     print(count)
-    display.lcd_display_string(active_mode, 1)
-    display.lcd_display_string(str(count), 2)
+
 
     #TACTILE
     if GPIO.input(17) == False:
         display.lcd_clear()
         print("Tactile Button was pushed!")
         display.lcd_display_string("Tactile Pushed", 1)
-        display.lcd_display_string(str(count), 2)
+        display.lcd_display_string(str(speed_timer), 2)
         count = count + 1
         speed_timer + 1
         print(count)
@@ -36,6 +35,8 @@ while True: # Run forever
             time.sleep(1)
     else:
         speed_timer = 0
+        display.lcd_display_string(active_mode, 1)
+        display.lcd_display_string(str(count), 2)
 
 
 
