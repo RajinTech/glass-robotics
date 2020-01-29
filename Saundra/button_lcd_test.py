@@ -22,8 +22,8 @@ count = 0;
 while True: # Run forever
     print("start")
     print(count)
-    #display.lcd_display_string(active_mode, 1)
-    #display.lcd_display_string(str(count), 2)
+    display.lcd_display_string(active_mode, 1)
+    display.lcd_display_string(str(count), 2)
     #PUSH
     if GPIO.input(18) == True:
         count = count + 1
