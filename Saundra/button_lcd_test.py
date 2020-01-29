@@ -28,7 +28,7 @@ while True: # Run forever
         speed_timer = 0
         display.lcd_clear()
         print("Tactile Button was pushed!")
-        display.lcd_display_string(active_mode "Tactile Pushed", 1)
+        display.lcd_display_string("Tactile Pushed", 1)
         display.lcd_display_string(str(count), 2)
         count = count + 1
         speed_timer + 1
