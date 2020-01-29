@@ -32,7 +32,7 @@ while True: # Run forever
         display.lcd_display_string(str(count), 2)
         print(count)
     #TACTILE
-    if MODE == False:
+    if GPIO.input(17) == False:
         count = count + 1
         print("Tactile Button was pushed!")
         display.lcd_display_string("Tactile Pushed", 1)
