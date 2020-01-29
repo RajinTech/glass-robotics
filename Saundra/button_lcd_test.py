@@ -30,7 +30,7 @@ while True: # Run forever
         count = count + 1
         speed_timer = speed_timer + 1
         print(count)
-        if speed_timer < 10:
+        if speed_timer < 7:
             time.sleep(1)
     else:
         speed_timer = 0
