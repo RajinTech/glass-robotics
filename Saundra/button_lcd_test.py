@@ -33,7 +33,6 @@ while True: # Run forever
         if speed_timer < 10:
             time.sleep(1)
     else:
-        display.lcd_clear()
         speed_timer = 0
         display.lcd_display_string(active_mode, 1)
         display.lcd_display_string(str(count), 2)
