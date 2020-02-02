@@ -17,5 +17,3 @@ TRACK_DIR.value = CW
 TRACK_STEP.value = 0.25
 sleep(sleep_count)
 TRACK_STEP.value = 0
-
-GPIO.cleanup()
