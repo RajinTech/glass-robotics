@@ -207,7 +207,11 @@ while True: # Run forever
         time.sleep(1)
         GREEN.value = 1
         YELLOW.value = 0
-        time.sleep(1)                                                           #START RELAY
+        time.sleep(1)
+                                                                                #START RELAY
+        RELAY.value = 1
+        time.sleep(1)
+
                                                                                 #START MOTOR
         for x in range(distance):
             TRACK_DIR.value = forward
@@ -219,6 +223,11 @@ while True: # Run forever
             TRACK_STEP.value = 1
             sleep(speed)
             TRACK_STEP.value = 0                                                #STOP RELAY
+
+            RELAY.value = 0
+            time.sleep(1)
+
+        active_mode = "Move"
 
         if GPIO.input(17) == False:
             WHITE.value = 1

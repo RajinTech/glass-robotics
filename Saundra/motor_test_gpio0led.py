@@ -7,7 +7,7 @@ TRACK_STEP = LED(20)  # Step GPIO Pin
 TRACK_DIR = LED(21)   # Direction GPIO Pin
 CW = 1     # Clockwise Rotation
 CCW = 0    # Counterclockwise Rotation
-speed = 0.5
+speed = 0.1
 distance = 200 #steps
 
 for x in range(distance):
