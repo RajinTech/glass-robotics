@@ -23,7 +23,7 @@ while True: # Run forever
         print("Down Button was pushed!")
         print(count)
     #Mode
-    if GPIO.input(24) == False:
-        count = count + 1
-        print("Up Button was pushed!")
-        print(count)
+    #if GPIO.input(24) == False:
+    #    count = count + 1
+    #    print("Up Button was pushed!")
+    #    print(count)
