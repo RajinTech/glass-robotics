@@ -74,7 +74,7 @@ while True: # Run forever
             display.lcd_display_string(str(count), 2)
 
 
-    if active_mode == "Distance":
+    elif active_mode == "Distance":
                                                                                 #DISTANCE
         if GPIO.input(17) == False:
             WHITE.value = 1
@@ -106,7 +106,7 @@ while True: # Run forever
             display.lcd_display_string(str(count), 2)
 
 
-    if active_mode == "Speed":
+    elif active_mode == "Speed":
                                                                                 #SPEED
         if GPIO.input(17) == False:
             WHITE.value = 1
@@ -139,7 +139,7 @@ while True: # Run forever
 
 
 
-    if active_mode == "Ready":
+    elif active_mode == "Ready":
                                                                                 #READY?
         if GPIO.input(17) == False:
             WHITE.value = 1
@@ -170,7 +170,7 @@ while True: # Run forever
             display.lcd_display_string(active_mode, 1)
             display.lcd_display_string(str(count), 2)
 
-    if active_mode == "Running":
+    elif active_mode == "Running":
                                                                                 #RUNNING
         if GPIO.input(17) == False:
             WHITE.value = 1
