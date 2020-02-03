@@ -8,9 +8,9 @@ GPIO.setup(17, GPIO.IN, pull_up_down=GPIO.PUD_DOWN) # Set pin 17 to be an input 
 
 
 count = 0;
+print("start")
+print(count)
 while True: # Run forever
-    print("start")
-    print(count)
 
     #Mode
     if GPIO.input(17) == False:
@@ -20,10 +20,10 @@ while True: # Run forever
     #Mode
     if GPIO.input(23) == False:
         count = count + 1
-        print("Up Button was pushed!")
+        print("Down Button was pushed!")
         print(count)
     #Mode
-    #if GPIO.input(24) == False:
-    #    count = count + 1
-    #    print("Down Button was pushed!")
-    #    print(count)
+    if GPIO.input(24) == False:
+        count = count + 1
+        print("Up Button was pushed!")
+        print(count)
