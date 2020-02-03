@@ -218,14 +218,14 @@ while True: # Run forever
             TRACK_DIR.value = forward
             TRACK_STEP.value = 0.5
             print("step backward")
-            time.sleep(speed)
+            time.sleep(0.01)
             TRACK_STEP.value = 0
             time.sleep(speed)
         for x in range(distance):
             TRACK_DIR.value = backward
             TRACK_STEP.value = 0.5
             print("step forward")
-            time.sleep(speed)
+            time.sleep(0.01)
             TRACK_STEP.value = 0
             time.sleep(speed)
                                                                                 #STOP RELAY
