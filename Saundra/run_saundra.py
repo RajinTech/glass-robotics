@@ -48,7 +48,7 @@ while True: # Run forever
             WHITE.value = 1
             display.lcd_clear()
             print("Changing Mode" + active_mode + active_mode)
-            active_mode = "Speed"
+            active_mode = "Distance"
             speed_timer = speed_timer + 1
             if speed_timer < 7:
                 time.sleep(1)
