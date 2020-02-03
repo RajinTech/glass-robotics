@@ -1,5 +1,6 @@
 import RPi.GPIO as GPIO # Import Raspberry Pi GPIO library
 from gpiozero import LED
+from gpiozero import PWMLED
 from time import sleep
 GPIO.setmode(GPIO.BCM) # Use physical pin numbering
 GPIO.setwarnings(False) # Ignore warning for now
@@ -19,8 +20,8 @@ YELLOW = LED(19)
 GREEN = LED(26)
 
 #MOTOR
-TRACK_STEP = LED(20)  # Step GPIO Pin
-TRACK_DIR = LED(21)   # Direction GPIO Pin
+TRACK_STEP = PWMLED(20)  # Step GPIO Pin
+TRACK_DIR = PWMLED(21)   # Direction GPIO Pin
 
 #LCD SETUP
 import lcddriver
@@ -60,13 +61,16 @@ while True: # Run forever
                 time.sleep(1)
         elif GPIO.input(23) == False:
             print("Down Button was pushed!")
-            moveTrack(backward, 1, 0.25)
+            TRACK_DIR.value = forward
+            TRACK_STEP.value = 0.5
         elif GPIO.input(24) == False:
             print("Down Button was pushed!")
-            moveTrack(forward, 1, 0.25)
+            TRACK_DIR.value = backward
+            TRACK_STEP.value = 0.5
         else:
             speed_timer = 0
             WHITE.value = 0
+            TRACK_STEP.value = 0
             display.lcd_display_string(active_mode, 1)
             display.lcd_display_string(str(count), 2)
 
