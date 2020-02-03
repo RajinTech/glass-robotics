@@ -60,11 +60,13 @@ while True: # Run forever
             if speed_timer < 7:
                 time.sleep(1)
         elif GPIO.input(23) == False:
+            WHITE.value = 1
             print("Down Button was pushed!")
             TRACK_DIR.value = forward
             TRACK_STEP.value = 0.5
         elif GPIO.input(24) == False:
-            print("Down Button was pushed!")
+            print("Up Button was pushed!")
+            WHITE.value = 1
             TRACK_DIR.value = backward
             TRACK_STEP.value = 0.5
         else:
