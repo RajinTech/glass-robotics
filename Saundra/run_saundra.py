@@ -36,7 +36,7 @@ count = 0
 backward = 1     # Clockwise Rotation
 forward = 0    # Counterclockwise Rotation
 speed = 0.5
-distance = 200 #steps
+distance = 0 #steps
 
 print("start")
 print(count)
@@ -138,6 +138,7 @@ while True: # Run forever
                 time.sleep(1)
         elif GPIO.input(24) == False:
             print("Up Button was pushed!")
+            LCD_ENTRYRIGHT = 0x00
             display.lcd_display_string(active_mode + " Up Pushed", 1)
             display.lcd_display_string(str(speed), 2)
             speed = speed + 0.01
@@ -151,7 +152,7 @@ while True: # Run forever
             WHITE.value = 0
             speed_timer = 0
             display.lcd_display_string(active_mode, 1)
-            display.lcd_display_string(str(count), 2)
+            display.lcd_display_string(str(speed), 2)
 
 
 
