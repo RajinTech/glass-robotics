@@ -36,7 +36,7 @@ position = 0
 backward = 1     # Clockwise Rotation
 forward = 0    # Counterclockwise Rotation
 speed = 0.1
-distance = 200 #steps
+distance = 10 #steps
 
 print("start")
 print(position)
@@ -214,7 +214,7 @@ while True: # Run forever
 
                                                                                 #START MOTOR
         for x in range(distance):
-            TRACK_DIR.value = forward
+            TRACK_DIR.value = backward
             TRACK_STEP.value = 0.5
             print("step")
             time.sleep(speed)
