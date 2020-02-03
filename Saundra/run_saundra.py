@@ -213,18 +213,20 @@ while True: # Run forever
         time.sleep(1)
 
                                                                                 #START MOTOR
+
+        for x in range(distance):
+            TRACK_DIR.value = backward
+            TRACK_STEP.value = 0.5
+            print("step backward")
+            time.sleep(speed)
+            TRACK_STEP.value = 0
         for x in range(distance):
             TRACK_DIR.value = forward
             TRACK_STEP.value = 0.5
             print("step forward")
             time.sleep(speed)
             TRACK_STEP.value = 0
-        for x in range(distance):
-            TRACK_DIR.value = backward
-            TRACK_STEP.value = 0.5
-            print("step backward")
-            time.sleep(speed)
-            TRACK_STEP.value = 0                                                #STOP RELAY
+                                                                                #STOP RELAY
 
             RELAY.value = 0
             time.sleep(1)
@@ -263,7 +265,7 @@ while True: # Run forever
             WHITE.value = 0
             speed_timer = 0
             display.lcd_display_string(active_mode, 1)
-            
+
 
 
 
