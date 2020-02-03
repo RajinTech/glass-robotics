@@ -130,7 +130,7 @@ while True: # Run forever
             display.lcd_display_string(active_mode + " Down Pushed", 1)
             display.lcd_display_string(str(speed), 2)
             speed = speed - 0.01
-            if speed >= 0.01:
+            if speed <= 0.01:
                 speed = 0.01
             speed_timer = speed_timer + 1
             print(speed)
@@ -141,7 +141,7 @@ while True: # Run forever
             display.lcd_display_string(active_mode + " Up Pushed", 1)
             display.lcd_display_string(str(speed), 2)
             speed = speed + 0.01
-            if speed >= 0.01:
+            if speed <= 0.01:
                 speed = 0.01
             speed_timer = speed_timer + 1
             print(speed)
