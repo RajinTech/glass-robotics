@@ -45,7 +45,7 @@ def moveTrack(dir, dis, spd):
         TRACK_STEP.value = 1
         sleep(spd)
         TRACK_STEP.value = 0
-    print("dir " + dir + "dis" + dis + "spd" + spd)
+    print("dir " + str(dir) + "dis" + str(dis) + "spd" + str(spd))
 while True: # Run forever
 
     if active_mode == "Move":
