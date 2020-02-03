@@ -216,13 +216,13 @@ while True: # Run forever
 
         for x in range(distance):
             TRACK_DIR.value = backward
-            TRACK_STEP.value = 0.5
+            TRACK_STEP.value = 1
             print("step backward")
             time.sleep(speed)
             TRACK_STEP.value = 0
         for x in range(distance):
             TRACK_DIR.value = forward
-            TRACK_STEP.value = 0.5
+            TRACK_STEP.value = 1
             print("step forward")
             time.sleep(speed)
             TRACK_STEP.value = 0
