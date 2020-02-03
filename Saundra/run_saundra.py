@@ -35,7 +35,7 @@ speed_timer = 0
 position = 0
 backward = 1     # Clockwise Rotation
 forward = 0    # Counterclockwise Rotation
-speed = 0.5
+speed = 0.1
 distance = 0 #steps
 
 print("start")
@@ -132,9 +132,9 @@ while True: # Run forever
             print("Down Button was pushed!")
             display.lcd_display_string(active_mode + " Down Pushed", 1)
             display.lcd_display_string(str(speed), 2)
-            speed = speed - 0.1
-            if speed <= 0.1:
-                speed = 0.1
+            speed = speed - 0.01
+            if speed <= 0.01:
+                speed = 0.01
             speed_timer = speed_timer + 1
             print(speed)
             if speed_timer < 7:
@@ -144,9 +144,9 @@ while True: # Run forever
             LCD_ENTRYRIGHT = 0x00
             display.lcd_display_string(active_mode + " Up Pushed", 1)
             display.lcd_display_string(str(speed), 2)
-            speed = speed + 0.1
-            if speed <= 0.1:
-                speed = 0.1
+            speed = speed + 0.01
+            if speed <= 0.01:
+                speed = 0.01
             speed_timer = speed_timer + 1
             print(speed)
             if speed_timer < 7:
