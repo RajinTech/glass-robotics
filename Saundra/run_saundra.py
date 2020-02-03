@@ -214,7 +214,7 @@ while True: # Run forever
 
                                                                                 #START MOTOR
         for x in range(distance):
-            TRACK_DIR.value = backward
+            TRACK_DIR.value = forward
             TRACK_STEP.value = 0.5
             print("step")
             time.sleep(speed)
@@ -230,6 +230,7 @@ while True: # Run forever
             time.sleep(1)
 
         active_mode = "Move"
+        display.lcd_clear()
 
         if GPIO.input(17) == False:
             WHITE.value = 1
