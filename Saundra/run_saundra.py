@@ -60,10 +60,10 @@ while True: # Run forever
                 time.sleep(1)
         elif GPIO.input(23) == False:
             print("Down Button was pushed!")
-            moveTrack(backward, 1, speed)
+            moveTrack(backward, 1, 0.25)
         elif GPIO.input(24) == False:
             print("Down Button was pushed!")
-            moveTrack(forward, 1, speed)
+            moveTrack(forward, 1, 0.25)
         else:
             speed_timer = 0
             WHITE.value = 0
