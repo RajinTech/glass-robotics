@@ -47,8 +47,11 @@ while True: # Run forever
         if GPIO.input(17) == False:
             WHITE.value = 1
             display.lcd_clear()
-            print("Changing Mode")
+            print("Changing Mode" + active_mode + active_mode)
             active_mode = "Speed"
+            speed_timer = speed_timer + 1
+            if speed_timer < 7:
+                time.sleep(1)
         elif GPIO.input(23) == False:
             print("Down Button was pushed!")
             display.lcd_display_string(active_mode + " Down Pushed", 1)
@@ -79,8 +82,11 @@ while True: # Run forever
         if GPIO.input(17) == False:
             WHITE.value = 1
             display.lcd_clear()
-            print("Changing Mode")
+            print("Changing Mode" + active_mode)
             active_mode = "Speed"
+            speed_timer = speed_timer + 1
+            if speed_timer < 7:
+                time.sleep(1)
         elif GPIO.input(23) == False:
             print("Down Button was pushed!")
             display.lcd_display_string(active_mode + " Down Pushed", 1)
@@ -111,8 +117,11 @@ while True: # Run forever
         if GPIO.input(17) == False:
             WHITE.value = 1
             display.lcd_clear()
-            print("Changing Mode")
+            print("Changing Mode" + active_mode)
             active_mode = "Ready?"
+            speed_timer = speed_timer + 1
+            if speed_timer < 7:
+                time.sleep(1)
         elif GPIO.input(23) == False:
             print("Down Button was pushed!")
             display.lcd_display_string(active_mode + " Down Pushed", 1)
@@ -144,8 +153,11 @@ while True: # Run forever
         if GPIO.input(17) == False:
             WHITE.value = 1
             display.lcd_clear()
-            print("Changing Mode")
+            print("Changing Mode" + active_mode)
             active_mode = "Running"
+            speed_timer = speed_timer + 1
+            if speed_timer < 7:
+                time.sleep(1)
         elif GPIO.input(23) == False:
             print("Down Button was pushed!")
             display.lcd_display_string(active_mode + " Down Pushed", 1)
@@ -175,8 +187,11 @@ while True: # Run forever
         if GPIO.input(17) == False:
             WHITE.value = 1
             display.lcd_clear()
-            print("Changing Mode")
+            print("Changing Mode" + active_mode)
             active_mode = "Move"
+            speed_timer = speed_timer + 1
+            if speed_timer < 7:
+                time.sleep(1)
         elif GPIO.input(23) == False:
             print("Down Button was pushed!")
             display.lcd_display_string(active_mode + " Down Pushed", 1)
