@@ -56,6 +56,7 @@ while True: # Run forever
             display.lcd_clear()
             print("Changing Mode" + active_mode)
             active_mode = "Distance"
+            display.lcd_display_string(active_mode, 1)
             speed_timer = speed_timer + 1
             if speed_timer < 7:
                 time.sleep(1)
@@ -84,6 +85,7 @@ while True: # Run forever
             display.lcd_clear()
             print("Changing Mode" + active_mode)
             active_mode = "Speed"
+            display.lcd_display_string(active_mode, 1)
             speed_timer = speed_timer + 1
             if speed_timer < 7:
                 time.sleep(1)
@@ -119,6 +121,7 @@ while True: # Run forever
             display.lcd_clear()
             print("Changing Mode" + active_mode)
             active_mode = "Ready?"
+            display.lcd_display_string(active_mode, 1)
             speed_timer = speed_timer + 1
             if speed_timer < 7:
                 time.sleep(1)
@@ -150,21 +153,15 @@ while True: # Run forever
 
     elif active_mode == "Ready?":
                                                                                 #READY?
-        if GPIO.input(17) == False:
+
+        if GPIO.input(23) == False:
+            print("Down Button was pushed!")
             WHITE.value = 1
             display.lcd_clear()
-            print("Changing Mode" + active_mode)
+            print("Now Ready" + active_mode)
             active_mode = "Running"
+            display.lcd_display_string(active_mode, 1)
             speed_timer = speed_timer + 1
-            if speed_timer < 7:
-                time.sleep(1)
-        elif GPIO.input(23) == False:
-            print("Down Button was pushed!")
-            display.lcd_display_string(active_mode + " Down Pushed", 1)
-            display.lcd_display_string(str(count), 2)
-            count = count - 1
-            speed_timer = speed_timer + 1
-            print(count)
             if speed_timer < 7:
                 time.sleep(1)
         elif GPIO.input(24) == False:
@@ -189,6 +186,7 @@ while True: # Run forever
             display.lcd_clear()
             print("Changing Mode" + active_mode)
             active_mode = "Move"
+            display.lcd_display_string(active_mode, 1)
             speed_timer = speed_timer + 1
             if speed_timer < 7:
                 time.sleep(1)
