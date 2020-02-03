@@ -46,7 +46,7 @@ while True: # Run forever
                                                                                 #MOVE
         if GPIO.input(17) == False:
             WHITE.value = 1
-            display.lcd_clear()
+            #display.lcd_clear()
             print("Changing Mode" + active_mode + active_mode)
             active_mode = "Distance"
             speed_timer = speed_timer + 1
@@ -81,7 +81,7 @@ while True: # Run forever
                                                                                 #DISTANCE
         if GPIO.input(17) == False:
             WHITE.value = 1
-            display.lcd_clear()
+            #display.lcd_clear()
             print("Changing Mode" + active_mode)
             active_mode = "Speed"
             speed_timer = speed_timer + 1
@@ -116,7 +116,7 @@ while True: # Run forever
                                                                                 #SPEED
         if GPIO.input(17) == False:
             WHITE.value = 1
-            display.lcd_clear()
+            #display.lcd_clear()
             print("Changing Mode" + active_mode)
             active_mode = "Ready?"
             speed_timer = speed_timer + 1
@@ -148,11 +148,11 @@ while True: # Run forever
 
 
 
-    elif active_mode == "Ready":
+    elif active_mode == "Ready?":
                                                                                 #READY?
         if GPIO.input(17) == False:
             WHITE.value = 1
-            display.lcd_clear()
+            #display.lcd_clear()
             print("Changing Mode" + active_mode)
             active_mode = "Running"
             speed_timer = speed_timer + 1
@@ -186,7 +186,7 @@ while True: # Run forever
                                                                                 #RUNNING
         if GPIO.input(17) == False:
             WHITE.value = 1
-            display.lcd_clear()
+            #display.lcd_clear()
             print("Changing Mode" + active_mode)
             active_mode = "Move"
             speed_timer = speed_timer + 1
