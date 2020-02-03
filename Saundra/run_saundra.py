@@ -200,6 +200,8 @@ while True: # Run forever
 
     elif active_mode == "Running":
                                                                                 #RUNNING
+                                                                                #START RELAY
+        RELAY.value = 1
         RED.value = 1
         time.sleep(1)
         YELLOW.value = 1
@@ -207,9 +209,6 @@ while True: # Run forever
         time.sleep(1)
         GREEN.value = 1
         YELLOW.value = 0
-        time.sleep(1)
-                                                                                #START RELAY
-        RELAY.value = 1
         time.sleep(1)
 
                                                                                 #START MOTOR
