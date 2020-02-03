@@ -128,19 +128,23 @@ while True: # Run forever
         elif GPIO.input(23) == False:
             print("Down Button was pushed!")
             display.lcd_display_string(active_mode + " Down Pushed", 1)
-            display.lcd_display_string(str(count), 2)
-            count = count - 1
+            display.lcd_display_string(str(speed), 2)
+            speed = speed - 0.01
+            if speed >= 0.01:
+                speed = 0.01
             speed_timer = speed_timer + 1
-            print(count)
+            print(speed)
             if speed_timer < 7:
                 time.sleep(1)
         elif GPIO.input(24) == False:
             print("Up Button was pushed!")
             display.lcd_display_string(active_mode + " Up Pushed", 1)
-            display.lcd_display_string(str(count), 2)
-            count = count + 1
+            display.lcd_display_string(str(speed), 2)
+            speed = speed + 0.01
+            if speed >= 0.01:
+                speed = 0.01
             speed_timer = speed_timer + 1
-            print(count)
+            print(speed)
             if speed_timer < 7:
                 time.sleep(1)
         else:
