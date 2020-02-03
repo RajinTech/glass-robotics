@@ -18,10 +18,10 @@ display = lcddriver.lcd()
 active_mode="Jog"
 speed_timer = 0;
 count = 0;
+print("start")
+print(count)
 
 while True: # Run forever
-    print("start")
-    print(count)
 
     #TACTILE
     if GPIO.input(17) == False:
