@@ -214,6 +214,7 @@ while True: # Run forever
         time.sleep(1)
                                                                                 #START RELAY
         RELAY.value = 1
+        time.sleep(3)
 
                                                                                 #START MOTOR
 
@@ -232,7 +233,7 @@ while True: # Run forever
             TRACK_STEP.value = 0
             time.sleep(speed)
                                                                                 #STOP RELAY
-        GREEN.value = 0                                                                        
+        GREEN.value = 0
         RELAY.value = 0
         time.sleep(1)
 
