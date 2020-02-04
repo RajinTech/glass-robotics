@@ -228,6 +228,8 @@ while True: # Run forever
         elif GPIO.input(24) == False:
             print("Up Button was pushed!")
             WHITE.value = 1
+            display.lcd_clear()
+            display.lcd_display_string("Shutting Down", 1)
             command = "/usr/bin/sudo /sbin/shutdown -r now"
             process = subprocess.Popen(command.split(), stdout=subprocess.PIPE)
             output = process.communicate()[0]
