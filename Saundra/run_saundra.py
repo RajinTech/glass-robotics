@@ -1,3 +1,4 @@
+import subprocess
 import RPi.GPIO as GPIO # Import Raspberry Pi GPIO library
 from gpiozero import LED
 from gpiozero import PWMLED
@@ -29,7 +30,7 @@ import time
 display = lcddriver.lcd()
 
 #STATE
-modes = ["Move", "Distance", "Speed", "Ready?", "Running"]
+modes = ["Move", "Distance", "Speed", "Ready?", "Shutdown?", "Running"]
 active_mode = "Move"
 speed_timer = 0
 position = 0
@@ -179,8 +180,8 @@ while True: # Run forever
             print("Down Button was pushed!")
             WHITE.value = 1
             display.lcd_clear()
-            print("Now Ready" + active_mode)
-            active_mode = "Running"
+            print("Shutdown?" + active_mode)
+            active_mode = "Shutdown?"
             display.lcd_display_string(active_mode, 1)
             speed_timer = speed_timer + 1
             if speed_timer < 3:
@@ -192,6 +193,46 @@ while True: # Run forever
             print("Now Ready" + active_mode)
             active_mode = "Running"
             display.lcd_display_string(active_mode, 1)
+            speed_timer = speed_timer + 1
+            print(position)
+            if speed_timer < 3:
+                time.sleep(1)
+        else:
+            WHITE.value = 0
+            speed_timer = 0
+            display.lcd_display_string(active_mode, 1)
+            display.lcd_display_string("Press Up to Start", 2)
+    elif active_mode == "Shutdown?":
+                                                                                #SHUTDOWN?
+
+        if GPIO.input(17) == False:
+            WHITE.value = 1
+            display.lcd_clear()
+            print("Changing Mode" + active_mode)
+            active_mode = "Move"
+            display.lcd_display_string(active_mode, 1)
+            speed_timer = speed_timer + 1
+            if speed_timer < 3:
+                time.sleep(1)
+        elif GPIO.input(23) == False:
+            print("Down Button was pushed!")
+            WHITE.value = 1
+            display.lcd_clear()
+            print("Changing Mode" + active_mode)
+            active_mode = "Ready?"
+            display.lcd_display_string(active_mode, 1)
+            speed_timer = speed_timer + 1
+            if speed_timer < 3:
+                time.sleep(1)
+
+        elif GPIO.input(24) == False:
+            print("Up Button was pushed!")
+            WHITE.value = 1
+            command = "/usr/bin/sudo /sbin/shutdown -r now"
+            process = subprocess.Popen(command.split(), stdout=subprocess.PIPE)
+            output = process.communicate()[0]
+            WHITE.value = 0
+            print output
             speed_timer = speed_timer + 1
             print(position)
             if speed_timer < 3:
