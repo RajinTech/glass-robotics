@@ -248,29 +248,46 @@ while True: # Run forever
     elif active_mode == "Running":
                                                                                 #RUNNING
         RED.value = 1
+        display.lcd_clear()
+        display.lcd_display_string("Three", 1)
         time.sleep(1)
         YELLOW.value = 1
         RED.value = 0
+        display.lcd_clear()
+        display.lcd_display_string("Two", 1)
         time.sleep(1)
         GREEN.value = 1
         YELLOW.value = 0
+        display.lcd_clear()
+        display.lcd_display_string("one", 1)
         time.sleep(1)
+
                                                                                 #START RELAY
         RELAY.value = 1
         time.sleep(3)
 
                                                                                 #START MOTOR
 
+        distance_counter = distance
+        display.lcd_clear()
+        display.lcd_display_string("Running Forward",1)
+        display.lcd_display_string(str(distance_counter),1)
         for x in range(distance):
             TRACK_DIR.value = forward
             TRACK_STEP.value = 0.5
+            distance_counter - 1
             print("step forward")
             time.sleep(0.01)
             TRACK_STEP.value = 0
             time.sleep(speed)
+
+        display.lcd_clear()
+        display.lcd_display_string("Running Backward",1)
+        display.lcd_display_string(str(distance_counter),1)
         for x in range(distance):
             TRACK_DIR.value = backward
             TRACK_STEP.value = 0.5
+            distance_counter + 1
             print("step forward")
             time.sleep(0.01)
             TRACK_STEP.value = 0
